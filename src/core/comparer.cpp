@@ -19,7 +19,7 @@ Status Comparer::Compare(const PalmprintCode& lhs_code, const PalmprintCode& rhs
     uint8_t distance = *(uint8_t*)lhs_md_cur_ptr ^ *(uint8_t*)rhs_md_cur_ptr;
     if (distance == 0x00) {  // same d, s.
       acc += 2;
-    } else if (distance < 0x10) {  // same d, diff s.
+    } else if (distance == 0x10) {  // same d, diff s.
       acc += 1;
     }
     ++lhs_md_cur_ptr, ++rhs_md_cur_ptr;
